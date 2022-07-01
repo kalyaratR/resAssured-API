@@ -1,5 +1,9 @@
 package API_Testing.API_Day1;
 
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import org.testng.annotations.Test;
+
 public class _01_introRestAssured {
     // Rest Assured is a java library that is used to perform API tests
 // It uses BDD Style such as given, when, then, and, etc.
@@ -45,4 +49,53 @@ public class _01_introRestAssured {
 // Task: Make a HTTP: POST request with given
 // full url with query params and print the response
 
+@Test
+    public void printResponse(){
+    RestAssured.given()
+            .when()
+            .post("https://api.octoperf.com/public/users/login?password=test12&username=tla.jiraone@gmail.com")
+            .prettyPeek(); // Prints the whole response body and headers
 }
+@Test
+    public void printResponsePrettyPrint(){
+    RestAssured.given()
+            .when()
+            .post("https://api.octoperf.com/public/users/login?password=test12&username=tla.jiraone@gmail.com")
+            .prettyPrint(); // Prints the whole response body and headers
+}
+/*
+When we verify the status codes we must pay attention to the following errors from the response body
+
+1xx --> Information
+2xx --> success
+ */
+    // Perform a Post request to log in API endpoint
+    // Verify Status code is 200 OK
+
+@Test
+public void verifyStatusCode(){
+    RestAssured.given()
+            .when()
+            .post("https://api.octoperf.com/public/users/login?password=test12&username=tla.jiraone@gmail.com")
+            .then()
+            .assertThat()
+            .statusCode(200);
+    System.out.println("Test verified, status code is 200 ok");// Optional
+}
+    // Perform a Post request to log in API endpoint
+    // Verify Content Type = JSON
+
+    @Test
+    public void verifyStatusType(){
+        RestAssured.given()
+                .when()
+                .post("https://api.octoperf.com/public/users/login?password=test12&username=tla.jiraone@gmail.com")
+                .then()
+                .assertThat()
+                .contentType(ContentType.JSON);
+        System.out.println("Test verify that content type = JSON");
+    }
+}
+
+
+
