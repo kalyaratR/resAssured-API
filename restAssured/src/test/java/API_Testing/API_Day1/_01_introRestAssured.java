@@ -54,7 +54,7 @@ public class _01_introRestAssured {
     public void printResponse(){
         RestAssured.given()
                 .when()
-                .post("https://api.octoperf.com/public/users/login?password=test12&username=tla.jiraone@gmail.com")
+                .post("https://api.octoperf.com/public/users/login?password=Kitty@12345&username=krowles2021@gmail.com")
                 .prettyPeek(); // Prints the whole response body and headers
     }
 
@@ -62,7 +62,7 @@ public class _01_introRestAssured {
     public void printResponsePrettyPrint(){
         RestAssured.given()
                 .when()
-                .post("https://api.octoperf.com/public/users/login?password=test12&username=tla.jiraone@gmail.com")
+                .post("https://api.octoperf.com/public/users/login?password=Kitty@12345&username=krowles2021@gmail.com")
                 .prettyPrint(); // Prints the whole response body and headers
     }
 
@@ -83,7 +83,7 @@ public class _01_introRestAssured {
     public void verifyStatusCode(){
         RestAssured.given()
                 .when()
-                .post("https://api.octoperf.com/public/users/login?password=test12&username=tla.jiraone@gmail.com")
+                .post("https://api.octoperf.com/public/users/login?password=Kitty@12345&username=krowles2021@gmail.com")
                 .then()
                 .assertThat()
                 .statusCode(200);
@@ -96,7 +96,7 @@ public class _01_introRestAssured {
     public void verifyContentType(){
         RestAssured.given()
                 .when()
-                .post("https://api.octoperf.com/public/users/login?password=test12&username=tla.jiraone@gmail.com")
+                .post("https://api.octoperf.com/public/users/login?password=Kitty@12345&username=krowles2021@gmail.com")
                 .then()
                 .assertThat()
                 .contentType(ContentType.JSON);
