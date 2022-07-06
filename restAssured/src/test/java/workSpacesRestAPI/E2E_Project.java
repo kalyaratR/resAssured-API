@@ -1,4 +1,4 @@
-package API_Testing.workspacesRestAPI;
+package workSpacesRestAPI;
 
 import com.sun.deploy.cache.CacheEntry;
 import io.restassured.RestAssured;
@@ -136,5 +136,7 @@ public class E2E_Project {
                 .extract()
                 .response();
         //TODO Validate Status code
+        assertThat(response.statusCode(), is(204));
+
     }
 }
